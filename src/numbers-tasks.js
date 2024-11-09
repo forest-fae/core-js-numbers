@@ -328,8 +328,12 @@ function getSumToN(n) {
  *   202 => 4  // (2+0+2)
  *   5   => 5  // 5
  */
-function getSumOfDigits(/* num */) {
-  throw new Error('Not implemented');
+function getSumOfDigits(num) {
+  return num
+    .toString()
+    .split('')
+    .map((el) => Number(el))
+    .reduce((acc, cur) => acc + cur);
 }
 
 /**
@@ -343,8 +347,10 @@ function getSumOfDigits(/* num */) {
  *   16  => true
  *   15  => false
  */
-function isPowerOfTwo(/* num */) {
-  throw new Error('Not implemented');
+// power of two = 2 in nth power, 2 is the base.
+
+function isPowerOfTwo(num) {
+  return Number.isInteger(Math.log2(num));
 }
 
 /**
