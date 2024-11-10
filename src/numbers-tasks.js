@@ -625,8 +625,15 @@ function getMaxNumber(firstNumber, secondNumber) {
  * -5, 0 => -5 | -4 | -3 | -2 | -1 | 0
  * -1, 1 => -1 | 0 | 1
  */
-function getRandomInteger(/* min, max */) {
-  throw new Error('Not implemented');
+// minCeil - rounds up to the nearest integer, maxFloor - rounds up to the nearest integer;
+// (maxFloor - minCeil + 1) - calculates the number of integers in the given range; + 1 because it makes the range inclusive of both min and max values;
+// + minCeil - shifts the range to start at minCeil instead of 0;
+// Math.floor() converts to an integer;
+
+function getRandomInteger(min, max) {
+  const minCeil = Math.ceil(min);
+  const maxFloor = Math.floor(max);
+  return Math.floor(Math.random() * (maxFloor - minCeil + 1) + minCeil);
 }
 
 /**
@@ -656,8 +663,15 @@ function getHypotenuse(a, b) {
  * 10 => 5
  * 15 => 8
  */
-function getCountOfOddNumbers(/* number */) {
-  throw new Error('Not implemented');
+function getCountOfOddNumbers(number) {
+  const modNum = Math.abs(number);
+  const arr = [1];
+  for (let i = 2; i <= modNum; i += 1) {
+    if (i % 2 !== 0) {
+      arr.push(i);
+    }
+  }
+  return arr.length;
 }
 
 module.exports = {
